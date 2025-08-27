@@ -2,15 +2,23 @@ using UnityEngine;
 
 public class Cup : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    Animator animator;
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+
+    }
+    public void Reveal()
+    {
+        if (animator.GetBool("Reveal")) return;
+        animator.SetBool("Reveal", true);
+    }
+    void Vanish()
+    {
+        Destroy(gameObject);
     }
 }
