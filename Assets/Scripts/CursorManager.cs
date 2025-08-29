@@ -15,10 +15,12 @@ public class CursorManager : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos += clickPos;
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
-
             if (hit.collider != null)
             {
-                hit.collider.GetComponentInParent<Cup>().Reveal();
+                if (hit.collider.transform.parent.CompareTag("Cup"))
+                {
+                    hit.collider.GetComponentInParent<Cup>().Reveal();
+                }
             }
         }
     }

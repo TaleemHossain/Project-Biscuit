@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    CurrentCookie currentCookie;
+    CookieCounter cookieCounter;
     [SerializeField] GameObject biscuitPrefab;
     [SerializeField] GameObject CupParentPrefab;
     [SerializeField] int cupCount = 1;
@@ -12,16 +14,13 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float spacingY = 2.5f;
     public List<GameObject> CupContainer;
     public List<GameObject> InGameBiscuitContainer;
-    public int CollectedBiscuitContainer = 0;
     void Start()
     {
+        currentCookie = FindFirstObjectByType<CurrentCookie>();
+        cookieCounter = FindFirstObjectByType<CookieCounter>();
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
         AddContent();
-    }
-    void Update()
-    {
-
     }
     private void SpawnCup(int cupCount)
     {
@@ -118,7 +117,7 @@ public class LevelManager : MonoBehaviour
                 {
                     InGameBiscuitContainer.Remove(biscuit);
                     Destroy(biscuit, 0.5f);
-                    CollectedBiscuitContainer++;
+                    cookieCounter.AddCookie();
                 }
             }
             CupContainer.Remove(cup);

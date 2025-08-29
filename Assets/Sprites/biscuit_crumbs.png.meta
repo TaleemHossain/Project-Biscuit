@@ -1,76 +1,205 @@
 fileFormatVersion: 2
-guid: c3a55e6a86813f44ab242ff3bed7ef7e
+guid: 05e83d6b1ee1781408d9459e110028f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6805304515042899624
-    second: biscuits_0
+      213: 4527048706613961930
+    second: biscuit_crumbs_0
   - first:
-      213: -2855682051518798655
-    second: biscuits_1
+      213: 2682583134848482809
+    second: biscuit_crumbs_1
   - first:
-      213: -1235511660086797154
-    second: biscuits_2
+      213: 140871265665117201
+    second: biscuit_crumbs_2
   - first:
-      213: 5649876654057517833
-    second: biscuits_3
+      213: 5690719012916859778
+    second: biscuit_crumbs_3
   - first:
-      213: -9190788794817441735
-    second: biscuits_4
+      213: -2817489019819817067
+    second: biscuit_crumbs_4
   - first:
-      213: -8460736334341715488
-    second: biscuits_5
+      213: -628620465979414993
+    second: biscuit_crumbs_5
   - first:
-      213: -5108191710491896091
-    second: biscuits_6
+      213: -743914670927210363
+    second: biscuit_crumbs_6
   - first:
-      213: 9138523891570642653
-    second: biscuits_7
+      213: 7354455015053996035
+    second: biscuit_crumbs_7
   - first:
-      213: 5480721476203206251
-    second: biscuits_8
+      213: -2744188944920221522
+    second: biscuit_crumbs_8
   - first:
-      213: -2340363012178865781
-    second: biscuits_9
+      213: 1661501724069132120
+    second: biscuit_crumbs_9
   - first:
-      213: -957735904061486648
-    second: biscuits_10
+      213: 343078738709525841
+    second: biscuit_crumbs_10
   - first:
-      213: -442789413379123345
-    second: biscuits_11
+      213: -9165680631103512998
+    second: biscuit_crumbs_11
   - first:
-      213: 2769612747115723366
-    second: biscuits_12
+      213: -4025026393077860428
+    second: biscuit_crumbs_12
   - first:
-      213: -6044113848096741328
-    second: biscuits_13
+      213: 2400365031421438767
+    second: biscuit_crumbs_13
   - first:
-      213: -4576906831663707393
-    second: biscuits_14
+      213: -5965227536613933269
+    second: biscuit_crumbs_14
   - first:
-      213: 648361422059434813
-    second: biscuits_15
+      213: 6975791623433218318
+    second: biscuit_crumbs_15
   - first:
-      213: -5089994231353637983
-    second: biscuits_16
+      213: -3114069990715071293
+    second: biscuit_crumbs_16
   - first:
-      213: 6292749756409870054
-    second: biscuits_17
+      213: 816479583696706976
+    second: biscuit_crumbs_17
   - first:
-      213: -3395982173096306858
-    second: biscuits_18
+      213: -162530378988883045
+    second: biscuit_crumbs_18
   - first:
-      213: -5245239262553850742
-    second: biscuits_19
+      213: -642233370874757011
+    second: biscuit_crumbs_19
   - first:
-      213: -7876763631322145183
-    second: biscuits_20
+      213: 1543348804661746914
+    second: biscuit_crumbs_20
   - first:
-      213: -8303089876381249584
-    second: biscuits_21
+      213: -1938238293611604953
+    second: biscuit_crumbs_21
   - first:
-      213: 2915896274539068465
-    second: biscuits_22
+      213: -479794140954559979
+    second: biscuit_crumbs_22
+  - first:
+      213: 1393931160730254229
+    second: biscuit_crumbs_23
+  - first:
+      213: -3926948616924949603
+    second: biscuit_crumbs_24
+  - first:
+      213: -117784222843497814
+    second: biscuit_crumbs_25
+  - first:
+      213: -1308457182303669913
+    second: biscuit_crumbs_26
+  - first:
+      213: 3348935688222681016
+    second: biscuit_crumbs_27
+  - first:
+      213: -6123841957598122377
+    second: biscuit_crumbs_28
+  - first:
+      213: 4425885462290107651
+    second: biscuit_crumbs_29
+  - first:
+      213: -7201490751894494414
+    second: biscuit_crumbs_30
+  - first:
+      213: 7629456619293438372
+    second: biscuit_crumbs_31
+  - first:
+      213: 5831237350492019895
+    second: biscuit_crumbs_32
+  - first:
+      213: 6658530208669617730
+    second: biscuit_crumbs_33
+  - first:
+      213: 5798811417560582173
+    second: biscuit_crumbs_34
+  - first:
+      213: 8975638212532710146
+    second: biscuit_crumbs_35
+  - first:
+      213: 1180281089592779502
+    second: biscuit_crumbs_36
+  - first:
+      213: 2913160504701799604
+    second: biscuit_crumbs_37
+  - first:
+      213: -3988782765182198253
+    second: biscuit_crumbs_38
+  - first:
+      213: 4802745076446195851
+    second: biscuit_crumbs_39
+  - first:
+      213: -8216056187051409724
+    second: biscuit_crumbs_40
+  - first:
+      213: -2875502128868019377
+    second: biscuit_crumbs_41
+  - first:
+      213: -1909238486052945015
+    second: biscuit_crumbs_42
+  - first:
+      213: 8578419163057296003
+    second: biscuit_crumbs_43
+  - first:
+      213: 71934490257142290
+    second: biscuit_crumbs_44
+  - first:
+      213: 153267653682390167
+    second: biscuit_crumbs_45
+  - first:
+      213: -3296141967288979418
+    second: biscuit_crumbs_46
+  - first:
+      213: -5980773799535821564
+    second: biscuit_crumbs_47
+  - first:
+      213: 7082062951282284394
+    second: biscuit_crumbs_48
+  - first:
+      213: 3039230083687404601
+    second: biscuit_crumbs_49
+  - first:
+      213: -224313220477387215
+    second: biscuit_crumbs_50
+  - first:
+      213: 8417163083978982758
+    second: biscuit_crumbs_51
+  - first:
+      213: -5650012885282131249
+    second: biscuit_crumbs_52
+  - first:
+      213: 395939091159199030
+    second: biscuit_crumbs_53
+  - first:
+      213: 2275779439704010466
+    second: biscuit_crumbs_54
+  - first:
+      213: -8302639645085096880
+    second: biscuit_crumbs_55
+  - first:
+      213: 5413669574324154885
+    second: biscuit_crumbs_56
+  - first:
+      213: 3195560163706617458
+    second: biscuit_crumbs_57
+  - first:
+      213: -7260486659986815763
+    second: biscuit_crumbs_58
+  - first:
+      213: 2248496603122368790
+    second: biscuit_crumbs_59
+  - first:
+      213: -4544926214469710654
+    second: biscuit_crumbs_60
+  - first:
+      213: -5220570565117442087
+    second: biscuit_crumbs_61
+  - first:
+      213: -8796201097573660701
+    second: biscuit_crumbs_62
+  - first:
+      213: -6794878617305439012
+    second: biscuit_crumbs_63
+  - first:
+      213: -5494003414827103286
+    second: biscuit_crumbs_64
+  - first:
+      213: 1579974590398183550
+    second: biscuit_crumbs_65
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -244,14 +373,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: biscuits_0
+      name: biscuit_crumbs_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 185
+        x: 241
+        y: 90
         width: 180
         height: 180
-      alignment: 9
+      alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -259,118 +388,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a67e7f766c417e50800000000000000
-      internalID: 6805304515042899624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: biscuits_1
-      rect:
-        serializedVersion: 2
-        x: 228
-        y: 183
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1c463cfdd449e58d0800000000000000
-      internalID: -2855682051518798655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: biscuits_2
-      rect:
-        serializedVersion: 2
-        x: 422
-        y: 182
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e9c5ca0f0b49adee0800000000000000
-      internalID: -1235511660086797154
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: biscuits_3
-      rect:
-        serializedVersion: 2
-        x: 45
-        y: 12
-        width: 180
-        height: 178
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 903fedde1e4686e40800000000000000
-      internalID: 5649876654057517833
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: biscuits_4
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 3
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 93014473942c37080800000000000000
-      internalID: -9190788794817441735
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: biscuits_5
-      rect:
-        serializedVersion: 2
-        x: 394
-        y: 12
-        width: 180
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0e9425d712d659a80800000000000000
-      internalID: -8460736334341715488
+      spriteID: ac4ed9630de43de30800000000000000
+      internalID: 4527048706613961930
       vertices: []
       indices: 
       edges: []
@@ -379,7 +398,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 376a0df3fcd33d740bc029aa6c289158
     internalID: 0
     vertices: []
     indices: 
@@ -387,31 +406,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":486.0,"y":513.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      biscuits_0: 6805304515042899624
-      biscuits_1: -2855682051518798655
-      biscuits_10: -957735904061486648
-      biscuits_11: -442789413379123345
-      biscuits_12: 2769612747115723366
-      biscuits_13: -6044113848096741328
-      biscuits_14: -4576906831663707393
-      biscuits_15: 648361422059434813
-      biscuits_16: -5089994231353637983
-      biscuits_17: 6292749756409870054
-      biscuits_18: -3395982173096306858
-      biscuits_19: -5245239262553850742
-      biscuits_2: -1235511660086797154
-      biscuits_20: -7876763631322145183
-      biscuits_21: -8303089876381249584
-      biscuits_22: 2915896274539068465
-      biscuits_3: 5649876654057517833
-      biscuits_4: -9190788794817441735
-      biscuits_5: -8460736334341715488
-      biscuits_6: -5108191710491896091
-      biscuits_7: 9138523891570642653
-      biscuits_8: 5480721476203206251
-      biscuits_9: -2340363012178865781
+      biscuit_crumbs_0: 4527048706613961930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
