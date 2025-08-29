@@ -12,14 +12,12 @@ public class CursorManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Click!");
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             mousePos += clickPos;
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
             if (hit.collider != null)
             {
-                Debug.Log("Clicked on " + hit.collider.name);
                 hit.collider.GetComponentInParent<Cup>().Reveal();
             }
         }

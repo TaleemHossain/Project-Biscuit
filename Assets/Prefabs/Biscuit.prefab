@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5202946181798689119}
   m_Layer: 0
   m_Name: Biscuit
-  m_TagString: Untagged
+  m_TagString: Biscuit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

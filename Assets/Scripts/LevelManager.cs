@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -6,13 +7,17 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject biscuitPrefab;
     [SerializeField] GameObject CupParentPrefab;
     [SerializeField] int cupCount = 1;
+    [SerializeField] int biscuitCount = 1;
     [SerializeField] float spacingX = 2f;
     [SerializeField] float spacingY = 2.5f;
     public List<GameObject> CupContainer;
+    public List<GameObject> InGameBiscuitContainer;
+    public int CollectedBiscuitContainer = 0;
     void Start()
     {
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
+        AddContent();
     }
     void Update()
     {
@@ -33,11 +38,48 @@ public class LevelManager : MonoBehaviour
             float posX = -(medianCol - col_num) * spacingX;
             float posY = -(row_num - medianRow) * spacingY;
             GameObject cup = Instantiate(CupParentPrefab, new Vector3(posX, posY, 0), Quaternion.identity, transform);
+            cup.GetComponent<Cup>().cupNumber = i;
             CupContainer.Add(cup);
+        }
+    }
+    private void AddContent()
+    {
+        int cupCount = CupContainer.Count;
+        List<int> indices = new();
+        for (int i = 0; i < cupCount; i++)
+        {
+            indices.Add(i);
+        }
+        for (int i = 0; i < indices.Count; i++)
+        {
+            int rand = Random.Range(i, indices.Count);
+            int temp = indices[i];
+            indices[i] = indices[rand];
+            indices[rand] = temp;
+        }
+        List<int> biscuitIndices = new();
+        for (int i = 0; i < biscuitCount; i++)
+        {
+            if (indices.Count == 0) break;
+            int randIndex = Random.Range(0, indices.Count);
+            biscuitIndices.Add(indices[randIndex]);
+            foreach (GameObject cup in CupContainer)
+            {
+                if (cup.GetComponent<Cup>().cupNumber == indices[randIndex])
+                {
+                    cup.GetComponent<Cup>().cupContent = Cup.CupContent.Biscuit;
+                    GameObject biscuit = Instantiate(biscuitPrefab, cup.transform);
+                    biscuit.transform.localPosition = new Vector3(0f, -0.4f, 0f);
+                    InGameBiscuitContainer.Add(biscuit);
+                    break;
+                }
+            }
+            indices.RemoveAt(randIndex);
         }
     }
     public void Proceed()
     {
+        if (InGameBiscuitContainer.Count > 0) return;
         DestroyAllCups();
         CupContainer.Clear();
         cupCount++;
@@ -46,13 +88,41 @@ public class LevelManager : MonoBehaviour
             cupCount = 20;
         }
         SpawnCup(cupCount);
+        AddContent();
     }
     void DestroyAllCups()
     {
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
-            if(transform.GetChild(i).CompareTag("Cup"))
+            if (transform.GetChild(i).CompareTag("Cup"))
                 Destroy(transform.GetChild(i).gameObject);
+        }
+    }
+    public void DestroyCup(int num)
+    {
+        GameObject cup = CupContainer.Find(c => c.GetComponent<Cup>().cupNumber == num);
+        if (cup != null)
+        {
+            if (cup.GetComponent<Cup>().cupContent == Cup.CupContent.Biscuit)
+            {
+                GameObject biscuit = null;
+                foreach (Transform child in cup.transform)
+                {
+                    if (child.CompareTag("Biscuit"))
+                    {
+                        biscuit = child.gameObject;
+                        break;
+                    }
+                }
+                if (biscuit != null)
+                {
+                    InGameBiscuitContainer.Remove(biscuit);
+                    Destroy(biscuit, 0.5f);
+                    CollectedBiscuitContainer++;
+                }
+            }
+            CupContainer.Remove(cup);
+            Destroy(cup);
         }
     }
 }
