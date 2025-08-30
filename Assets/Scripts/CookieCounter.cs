@@ -21,7 +21,7 @@ public class CookieCounter : MonoBehaviour
     public void AddCookie()
     {
         cookieCount++;
-        if(!ProceedButton.activeSelf)ProceedButton.SetActive(true);
+        
         UpdateText(cookieCount);
         if (!currentCookie.CookieAvailable)
         {

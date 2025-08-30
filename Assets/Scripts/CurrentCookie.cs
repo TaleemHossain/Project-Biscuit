@@ -24,13 +24,9 @@ public class CurrentCookie : MonoBehaviour
     {
         currentBites++;
         UpdateImage(currentBites);
-        if (currentBites == maxBites)
+        if (currentBites >= maxBites)
         {
             cookieCounter.SetCurrentCookie();
-        }
-        if (currentBites > maxBites)
-        {
-            Debug.Log("You shouldn't be here");
         }
     }
     public void UpdateImage(int num)

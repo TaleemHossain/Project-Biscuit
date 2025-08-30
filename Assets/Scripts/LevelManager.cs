@@ -7,24 +7,29 @@ public class LevelManager : MonoBehaviour
     [SerializeField] GameObject biscuitPrefab;
     [SerializeField] GameObject CupParentPrefab;
     [SerializeField] int cupCount = 1;
+    [SerializeField] int maxCupCount = 15;
     [SerializeField] int biscuitCount = 1;
     [SerializeField] float spacingX = 2f;
     [SerializeField] float spacingY = 2.5f;
+    [SerializeField] Vector3 generateCookieAt = new(0f, -4f, 0f);
     public List<GameObject> CupContainer;
     public List<GameObject> InGameBiscuitContainer;
     public GameObject ProceedButton;
-    public int CupCount;
+    public GameObject gameOver;
     void Start()
     {
         ProceedButton.SetActive(false);
-
+        gameOver.SetActive(false);
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
         AddContent();
     }
     void Update()
     {
-        CupCount = cupCount;
+        if (InGameBiscuitContainer.Count == 0)
+        {
+            if (!ProceedButton.activeSelf) ProceedButton.SetActive(true);
+        }
     }
     public void SpawnCup(int cupCount)
     {
@@ -72,7 +77,7 @@ public class LevelManager : MonoBehaviour
                 {
                     cup.GetComponent<Cup>().cupContent = Cup.CupContent.Biscuit;
                     GameObject biscuit = Instantiate(biscuitPrefab, cup.transform);
-                    biscuit.transform.localPosition = new Vector3(0f, -0.4f, 0f);
+                    biscuit.transform.localPosition = generateCookieAt;
                     InGameBiscuitContainer.Add(biscuit);
                     break;
                 }
@@ -86,9 +91,9 @@ public class LevelManager : MonoBehaviour
         DestroyAll();
         CupContainer.Clear();
         cupCount++;
-        if (cupCount > 20)
+        if (cupCount > maxCupCount)
         {
-            cupCount = 20;
+            cupCount = maxCupCount;
         }
         SpawnCup(cupCount);
         AddContent();
@@ -129,6 +134,10 @@ public class LevelManager : MonoBehaviour
             CupContainer.Remove(cup);
             Destroy(cup);
         }
+    }
+    public void GameOver()
+    {
+        gameOver.SetActive(true);
     }
     public void Retry()
     {

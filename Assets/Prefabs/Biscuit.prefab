@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4445835454471457250}
   - component: {fileID: 1140282762592117211}
   - component: {fileID: 8741842923509420963}
-  - component: {fileID: 800536970680981152}
+  - component: {fileID: 2976961771246375936}
   m_Layer: 0
   m_Name: Biscuit
   m_TagString: Biscuit
@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.9989302, y: -1.17152, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.375, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.375, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -104,8 +104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4810065bb01094a9f1642789fa2c72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Cookie
---- !u!58 &800536970680981152
-CircleCollider2D:
+--- !u!70 &2976961771246375936
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -138,5 +138,6 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.75
+  m_Offset: {x: -0.01, y: 0}
+  m_Size: {x: 1.6, y: 1.55}
+  m_Direction: 1

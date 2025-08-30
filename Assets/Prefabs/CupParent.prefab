@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4893135231020572601}
   - component: {fileID: 961301855215005951}
   - component: {fileID: 5682528219491580155}
-  - component: {fileID: 8786385431500685290}
+  - component: {fileID: 2967462838422533763}
   m_Layer: 0
   m_Name: Cup
   m_TagString: Untagged
@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -8141482878259212829, guid: 2a60d54f69de8a647ab01c024f4cf821, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39bae228514c57a498d7100aa9d1db43, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -114,8 +114,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &8786385431500685290
-BoxCollider2D:
+--- !u!60 &2967462838422533763
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -152,14 +152,49 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.22, y: 1.74}
+    oldSize: {x: 5.85, y: 4.27}
     newSize: {x: 7.625, y: 10.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.6}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.85499996, y: -1.165}
+      - {x: 0.895, y: -1.125}
+      - {x: 0.935, y: -1.035}
+      - {x: 0.935, y: -0.935}
+      - {x: 0.885, y: -0.79499996}
+      - {x: 0.85499996, y: -0.545}
+      - {x: 0.805, y: -0.145}
+      - {x: 0.78499997, y: -0.015}
+      - {x: 0.755, y: 0.325}
+      - {x: 0.72499996, y: 0.575}
+      - {x: 0.675, y: 1.115}
+      - {x: 0.66499996, y: 1.165}
+      - {x: 0.655, y: 1.275}
+      - {x: 0.565, y: 1.345}
+      - {x: 0.295, y: 1.375}
+      - {x: -0.39499998, y: 1.375}
+      - {x: -0.645, y: 1.355}
+      - {x: -0.73499995, y: 1.295}
+      - {x: -0.755, y: 1.235}
+      - {x: -0.775, y: 1.035}
+      - {x: -0.805, y: 0.72499996}
+      - {x: -0.835, y: 0.375}
+      - {x: -0.865, y: 0.095}
+      - {x: -0.965, y: -0.84499997}
+      - {x: -1.015, y: -0.955}
+      - {x: -1.015, y: -1.0649999}
+      - {x: -1.005, y: -1.115}
+      - {x: -0.835, y: -1.265}
+      - {x: -0.575, y: -1.3349999}
+      - {x: -0.49499997, y: -1.355}
+      - {x: -0.235, y: -1.385}
+      - {x: -0.085, y: -1.385}
+      - {x: 0.36499998, y: -1.375}
+      - {x: 0.695, y: -1.265}
+  m_UseDelaunayMesh: 0
 --- !u!1 &3076445795339015761
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +223,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.9989302, y: -0.67952, z: 1}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4893135231020572601}
