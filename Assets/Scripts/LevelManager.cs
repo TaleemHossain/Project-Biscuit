@@ -6,14 +6,17 @@ public class LevelManager : MonoBehaviour
 {
     [SerializeField] GameObject biscuitPrefab;
     [SerializeField] GameObject CupParentPrefab;
+    [SerializeField] List<GameObject> PowerUpsPrefab;
     [SerializeField] int cupCount = 1;
     [SerializeField] int maxCupCount = 15;
     [SerializeField] int biscuitCount = 1;
     [SerializeField] float spacingX = 2f;
     [SerializeField] float spacingY = 2.5f;
     [SerializeField] Vector3 generateCookieAt = new(0f, -4f, 0f);
-    public List<GameObject> CupContainer;
-    public List<GameObject> InGameBiscuitContainer;
+    int maxPowerUpCountinLevel;
+    public List<GameObject> CupContainer = new();
+    public List<GameObject> InGameBiscuitContainer = new();
+    public List<GameObject> PowerUpInGame = new();
     public GameObject ProceedButton;
     public GameObject gameOver;
     void Start()
@@ -23,6 +26,7 @@ public class LevelManager : MonoBehaviour
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
         AddContent();
+        maxPowerUpCountinLevel = 0;
     }
     void Update()
     {
@@ -79,10 +83,28 @@ public class LevelManager : MonoBehaviour
                     GameObject biscuit = Instantiate(biscuitPrefab, cup.transform);
                     biscuit.transform.localPosition = generateCookieAt;
                     InGameBiscuitContainer.Add(biscuit);
+                    indices.RemoveAt(randIndex);
                     break;
                 }
             }
-            indices.RemoveAt(randIndex);
+        }
+        for (int i = 0; i < maxPowerUpCountinLevel; i++)
+        {
+            if (indices.Count == 0) break;
+            int randIndexForCup = Random.Range(0, indices.Count);
+            int randIndexForPowerUp = Random.Range(0, PowerUpsPrefab.Count);
+            foreach (GameObject cup in CupContainer)
+            {
+                if (cup.GetComponent<Cup>().cupNumber == indices[randIndexForCup])
+                {
+                    cup.GetComponent<Cup>().cupContent = Cup.CupContent.PowerUp;
+                    GameObject PowerUp = Instantiate(PowerUpsPrefab[randIndexForPowerUp], cup.transform);
+                    PowerUp.transform.localPosition = generateCookieAt;
+                    PowerUpInGame.Add(PowerUp);
+                    indices.RemoveAt(randIndexForCup);
+                    break;
+                }
+            }
         }
     }
     public void Proceed()
@@ -95,6 +117,7 @@ public class LevelManager : MonoBehaviour
         {
             cupCount = maxCupCount;
         }
+        maxPowerUpCountinLevel = (cupCount - 1) / 4;
         SpawnCup(cupCount);
         AddContent();
         ProceedButton.SetActive(false);
@@ -131,8 +154,55 @@ public class LevelManager : MonoBehaviour
                     biscuit.transform.SetParent(transform);
                 }
             }
+            else if (cup.GetComponent<Cup>().cupContent == Cup.CupContent.PowerUp)
+            {
+                GameObject powerUp = null;
+                foreach (Transform child in cup.transform)
+                {
+                    if (child.CompareTag("PowerUp"))
+                    {
+                        powerUp = child.gameObject;
+                        break;
+                    }
+                }
+                if (powerUp != null)
+                {
+                    PowerUpInGame.Remove(powerUp);
+                    powerUp.transform.SetParent(transform);
+                }
+            }
             CupContainer.Remove(cup);
             Destroy(cup);
+        }
+    }
+    public void EliminatePowerUp()
+    {
+        if(CupContainer.Count == 0) return;
+        int randIndex = Random.Range(0, CupContainer.Count);
+        CupContainer[randIndex].GetComponent<Cup>().PowerUpReveal();   
+    }
+    public void AddCookiePowerUp()
+    {
+        if(CupContainer.Count == 0) return;
+        List<int> indices = new();
+        foreach (var cup in CupContainer)
+        {
+            if (cup.GetComponent<Cup>().cupContent == Cup.CupContent.None)
+            {
+                indices.Add(cup.GetComponent<Cup>().cupNumber);
+            }
+        }
+        if (indices.Count == 0) return;
+        int randIndex = Random.Range(0, indices.Count);
+        foreach (var cup in CupContainer)
+        {
+            if (cup.GetComponent<Cup>().cupNumber == indices[randIndex])
+            {
+                cup.GetComponent<Cup>().cupContent = Cup.CupContent.Biscuit;
+                GameObject biscuit = Instantiate(biscuitPrefab, cup.transform);
+                biscuit.transform.localPosition = generateCookieAt;
+                break;
+            }
         }
     }
     public void GameOver()

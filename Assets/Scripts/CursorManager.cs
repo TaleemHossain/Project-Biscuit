@@ -25,6 +25,10 @@ public class CursorManager : MonoBehaviour
                 {
                     hit.collider.GetComponentInParent<Cookie>().Collect();
                 }
+                else if (hit.collider.transform.CompareTag("PowerUp"))
+                {
+                    hit.collider.GetComponentInParent<PowerUp>().Collect();
+                }
             }
         }
     }

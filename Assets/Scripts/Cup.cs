@@ -5,7 +5,7 @@ public class Cup : MonoBehaviour
     Animator animator;
     CurrentCookie currentCookie;
     CookieCounter cookieCounter;
-    public enum CupContent { None, Biscuit };
+    public enum CupContent { None, Biscuit, PowerUp };
     public CupContent cupContent = CupContent.None;
     public int cupNumber;
     void Start()
@@ -33,6 +33,11 @@ public class Cup : MonoBehaviour
             animator.SetBool("Reveal", true);
             currentCookie.EatBite();
         }
+    }
+    public void PowerUpReveal()
+    {
+        if (animator.GetBool("Reveal")) return;
+        animator.SetBool("Reveal", true);
     }
     void Vanish()
     {
