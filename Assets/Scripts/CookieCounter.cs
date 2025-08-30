@@ -8,10 +8,8 @@ public class CookieCounter : MonoBehaviour
     int cookieCount = 0;
     bool onLoanCookieBite = false;
     public GameObject ProceedButton;
-    public GameObject GameOver;
     void Start()
     {
-        GameOver.SetActive(false);
         currentCookie = FindFirstObjectByType<CurrentCookie>();
         textMeshPro = transform.GetComponent<TextMeshProUGUI>();
         AddCookie();
@@ -51,7 +49,6 @@ public class CookieCounter : MonoBehaviour
         else
         {
             Debug.Log("No Biscuit Available");
-            GameOver.SetActive(true);
         }
     }
     public void UseOnLoanCookieBite()

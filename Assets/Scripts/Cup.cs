@@ -8,8 +8,10 @@ public class Cup : MonoBehaviour
     public enum CupContent { None, Biscuit };
     public CupContent cupContent = CupContent.None;
     public int cupNumber;
+    public GameObject GameOver;
     void Start()
     {
+        GameOver.SetActive(false);
         currentCookie = FindFirstObjectByType<CurrentCookie>();
         cookieCounter = FindFirstObjectByType<CookieCounter>();
         animator = transform.GetComponent<Animator>();
@@ -20,6 +22,7 @@ public class Cup : MonoBehaviour
         if (cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.None && !currentCookie.CookieAvailable)
         {
             Debug.Log("No Biscuit Available");
+            GameOver.SetActive(true);
             Debug.Log("Game Should Show End Game Screen");
         }
         else if (cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.Biscuit && !currentCookie.CookieAvailable)
