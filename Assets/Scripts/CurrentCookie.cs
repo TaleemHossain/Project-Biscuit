@@ -5,8 +5,10 @@ public class CurrentCookie : MonoBehaviour
 {
     CookieCounter cookieCounter;
     [SerializeField] Sprite FullBiscuit;
-    [SerializeField] Sprite PartialBiscuit;
-    [SerializeField] Sprite LastBiteBiscuit;
+    [SerializeField] Sprite Bite1Biscuit;
+    [SerializeField] Sprite Bite2Biscuit;
+    [SerializeField] Sprite Bite3Biscuit;
+    [SerializeField] Sprite Bite4Biscuit;
     [SerializeField] Sprite NoBiscuit;
     [SerializeField] public int maxBites = 4;
     public int currentBites;
@@ -28,28 +30,36 @@ public class CurrentCookie : MonoBehaviour
         }
         if (currentBites > maxBites)
         {
-            Debug.Log("No Biscuit is Available Now");
+            Debug.Log("You shouldn't be here");
         }
     }
     public void UpdateImage(int num)
     {
-        if (num == maxBites)
-        {
-            image.sprite = NoBiscuit;
-            CookieAvailable = false;
-        }
-        else if (num == 0)
+        if (num == 0)
         {
             image.sprite = FullBiscuit;
             CookieAvailable = true;
         }
         else if (num == maxBites - 1)
         {
-            image.sprite = LastBiteBiscuit;
+            image.sprite = Bite4Biscuit;
+        }
+        else if (num == 1)
+        {
+            image.sprite = Bite1Biscuit;
+        }
+        else if (num == 2)
+        {
+            image.sprite = Bite2Biscuit;
+        }
+        else if (num == 3)
+        {
+            image.sprite = Bite3Biscuit;
         }
         else
         {
-            image.sprite = PartialBiscuit;
+            image.sprite = NoBiscuit;
+            CookieAvailable = false;
         }
     }
 }

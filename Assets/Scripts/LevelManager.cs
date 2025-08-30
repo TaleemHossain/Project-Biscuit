@@ -1,11 +1,8 @@
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    CurrentCookie currentCookie;
-    CookieCounter cookieCounter;
     [SerializeField] GameObject biscuitPrefab;
     [SerializeField] GameObject CupParentPrefab;
     [SerializeField] int cupCount = 1;
@@ -16,8 +13,6 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> InGameBiscuitContainer;
     void Start()
     {
-        currentCookie = FindFirstObjectByType<CurrentCookie>();
-        cookieCounter = FindFirstObjectByType<CookieCounter>();
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
         AddContent();
@@ -79,7 +74,7 @@ public class LevelManager : MonoBehaviour
     public void Proceed()
     {
         if (InGameBiscuitContainer.Count > 0) return;
-        DestroyAllCups();
+        DestroyAll();
         CupContainer.Clear();
         cupCount++;
         if (cupCount > 20)
@@ -89,11 +84,13 @@ public class LevelManager : MonoBehaviour
         SpawnCup(cupCount);
         AddContent();
     }
-    void DestroyAllCups()
+    void DestroyAll()
     {
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
             if (transform.GetChild(i).CompareTag("Cup"))
+                Destroy(transform.GetChild(i).gameObject);
+            if (transform.GetChild(i).CompareTag("Biscuit"))
                 Destroy(transform.GetChild(i).gameObject);
         }
     }
@@ -116,8 +113,7 @@ public class LevelManager : MonoBehaviour
                 if (biscuit != null)
                 {
                     InGameBiscuitContainer.Remove(biscuit);
-                    Destroy(biscuit, 0.5f);
-                    cookieCounter.AddCookie();
+                    biscuit.transform.SetParent(transform);
                 }
             }
             CupContainer.Remove(cup);

@@ -6,6 +6,7 @@ public class CookieCounter : MonoBehaviour
     CurrentCookie currentCookie;
     TextMeshProUGUI textMeshPro;
     int cookieCount = 0;
+    bool onLoanCookieBite = false;
     void Start()
     {
         currentCookie = FindFirstObjectByType<CurrentCookie>();
@@ -24,9 +25,14 @@ public class CookieCounter : MonoBehaviour
         {
             SetCurrentCookie();
         }
+        if (onLoanCookieBite)
+        {
+            currentCookie.EatBite();
+            onLoanCookieBite = false;
+        }
     }
     public void UpdateText(int num)
-    { 
+    {
         textMeshPro.text = "and " + num.ToString() + " biscuits left";
     }
     public void SetCurrentCookie()
@@ -42,5 +48,9 @@ public class CookieCounter : MonoBehaviour
         {
             Debug.Log("No Biscuit Available");
         }
+    }
+    public void UseOnLoanCookieBite()
+    {
+        onLoanCookieBite = true;
     }
 }

@@ -662,10 +662,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CurrentCookie
   FullBiscuit: {fileID: 6805304515042899624, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
-  PartialBiscuit: {fileID: -1235511660086797154, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
-  LastBiteBiscuit: {fileID: -9190788794817441735, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
+  Bite1Biscuit: {fileID: -2855682051518798655, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
+  Bite2Biscuit: {fileID: -1235511660086797154, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
+  Bite3Biscuit: {fileID: -9190788794817441735, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
+  Bite4Biscuit: {fileID: -8460736334341715488, guid: c3a55e6a86813f44ab242ff3bed7ef7e, type: 3}
   NoBiscuit: {fileID: 4527048706613961930, guid: 05e83d6b1ee1781408d9459e110028f8, type: 3}
-  maxBites: 4
+  maxBites: 5
   currentBites: 0
   CookieAvailable: 0
 --- !u!1 &1614720329

@@ -1,5 +1,4 @@
 using UnityEngine;
-
 public class Cup : MonoBehaviour
 {
     LevelManager levelManager;
@@ -18,15 +17,23 @@ public class Cup : MonoBehaviour
     }
     public void Reveal()
     {
-        if(cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.None && !currentCookie.CookieAvailable)
+        if (cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.None && !currentCookie.CookieAvailable)
         {
             Debug.Log("No Biscuit Available");
             Debug.Log("Game Should Show End Game Screen");
-            return;
         }
-        if (animator.GetBool("Reveal")) return;
-        animator.SetBool("Reveal", true);
-        currentCookie.EatBite();
+        else if (cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.Biscuit && !currentCookie.CookieAvailable)
+        {
+            if (animator.GetBool("Reveal")) return;
+            animator.SetBool("Reveal", true);
+            cookieCounter.UseOnLoanCookieBite();
+        }
+        else
+        {
+            if (animator.GetBool("Reveal")) return;
+            animator.SetBool("Reveal", true);
+            currentCookie.EatBite();
+        }
     }
     void Vanish()
     {

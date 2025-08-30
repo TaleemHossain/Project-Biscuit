@@ -17,9 +17,13 @@ public class CursorManager : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
             if (hit.collider != null)
             {
-                if (hit.collider.transform.parent.CompareTag("Cup"))
+                if (hit.collider.transform.parent != null && hit.collider.transform.parent.CompareTag("Cup"))
                 {
                     hit.collider.GetComponentInParent<Cup>().Reveal();
+                }
+                else if (hit.collider.transform.CompareTag("Biscuit"))
+                {
+                    hit.collider.GetComponentInParent<Cookie>().Collect();
                 }
             }
         }
