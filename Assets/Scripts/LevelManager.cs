@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -11,13 +12,21 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float spacingY = 2.5f;
     public List<GameObject> CupContainer;
     public List<GameObject> InGameBiscuitContainer;
+    public GameObject ProceedButton;
+    public int CupCount;
     void Start()
     {
+        ProceedButton.SetActive(false);
+
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
         AddContent();
     }
-    private void SpawnCup(int cupCount)
+    void Update()
+    {
+        CupCount = cupCount;
+    }
+    public void SpawnCup(int cupCount)
     {
         int rows = Mathf.CeilToInt((float)cupCount / 5f);
         int cols = Mathf.CeilToInt((float)cupCount / rows);
@@ -36,7 +45,7 @@ public class LevelManager : MonoBehaviour
             CupContainer.Add(cup);
         }
     }
-    private void AddContent()
+    public void AddContent()
     {
         int cupCount = CupContainer.Count;
         List<int> indices = new();
@@ -83,8 +92,9 @@ public class LevelManager : MonoBehaviour
         }
         SpawnCup(cupCount);
         AddContent();
+        ProceedButton.SetActive(false);
     }
-    void DestroyAll()
+    public void DestroyAll()
     {
         for (int i = transform.childCount - 1; i >= 0; i--)
         {
@@ -119,5 +129,9 @@ public class LevelManager : MonoBehaviour
             CupContainer.Remove(cup);
             Destroy(cup);
         }
+    }
+    public void Retry()
+    {
+        SceneManager.LoadScene(0);
     }
 }
