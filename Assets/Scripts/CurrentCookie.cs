@@ -15,15 +15,18 @@ public class CurrentCookie : MonoBehaviour
     public int currentBites;
     public bool CookieAvailable = false;
     Image image;
+    private AudioManager audioManager;
     void Start()
     {
         currentBites = 0;
+        audioManager = FindFirstObjectByType<AudioManager>();
         cookieCounter = FindFirstObjectByType<CookieCounter>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
         image = transform.GetComponent<Image>();
     }
     public void EatBite()
     {
+        audioManager.PlaySFX(audioManager.BiteCookie);
         scoreManager.AddPoints(-50);
         currentBites++;
         UpdateImage(currentBites);

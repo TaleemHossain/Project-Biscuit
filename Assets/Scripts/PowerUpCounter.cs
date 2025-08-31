@@ -7,8 +7,10 @@ public class PowerUpCounter : MonoBehaviour
     int powerUpCount;
     [SerializeField] public int powerUpID;
     LevelManager levelManager;
+    private AudioManager audioManager;
     void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
         powerUpCount = 0;
         levelManager = FindFirstObjectByType<LevelManager>();
@@ -28,6 +30,7 @@ public class PowerUpCounter : MonoBehaviour
         if (powerUpCount == 0) return;
         if (powerUpCount > 0)
         {
+            audioManager.PlaySFX(audioManager.UsePowerUp);
             scoreManager.AddPoints(-25);
             powerUpCount--;
         }

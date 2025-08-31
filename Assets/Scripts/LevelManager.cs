@@ -21,8 +21,11 @@ public class LevelManager : MonoBehaviour
     public List<GameObject> PowerUpInGame = new();
     public GameObject ProceedButton;
     public GameObject gameOver;
+    [SerializeField] private List<GameObject> toDisable;
+    private AudioManager audioManager;
     void Start()
     {
+        audioManager = FindFirstObjectByType<AudioManager>();
         scoreManager = FindFirstObjectByType<ScoreManager>();
         ProceedButton.SetActive(false);
         gameOver.SetActive(false);
@@ -113,6 +116,7 @@ public class LevelManager : MonoBehaviour
     }
     public void Proceed()
     {
+        audioManager.PlaySFX(audioManager.ClickButton);
         if (InGameBiscuitContainer.Count > 0) return;
         DestroyAll();
         CupContainer.Clear();
@@ -222,10 +226,16 @@ public class LevelManager : MonoBehaviour
     }
     public void GameOver()
     {
+        audioManager.PlaySFX(audioManager.GameOver);
         gameOver.SetActive(true);
+        foreach (var obj in toDisable)
+        {
+            obj.SetActive(false);
+        }
     }
     public void Retry()
     {
+        audioManager.PlaySFX(audioManager.ClickButton);
         SceneManager.LoadScene(0);
     }
 }
