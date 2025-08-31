@@ -4,6 +4,7 @@ using UnityEngine;
 public class CurrentCookie : MonoBehaviour
 {
     CookieCounter cookieCounter;
+    ScoreManager scoreManager;
     [SerializeField] Sprite FullBiscuit;
     [SerializeField] Sprite Bite1Biscuit;
     [SerializeField] Sprite Bite2Biscuit;
@@ -18,10 +19,12 @@ public class CurrentCookie : MonoBehaviour
     {
         currentBites = 0;
         cookieCounter = FindFirstObjectByType<CookieCounter>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
         image = transform.GetComponent<Image>();
     }
     public void EatBite()
     {
+        scoreManager.AddPoints(-50);
         currentBites++;
         UpdateImage(currentBites);
         if (currentBites >= maxBites)

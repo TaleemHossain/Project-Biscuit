@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
+    ScoreManager scoreManager;
     [SerializeField] GameObject biscuitPrefab;
     [SerializeField] GameObject CupParentPrefab;
     [SerializeField] List<GameObject> PowerUpsPrefab;
@@ -14,6 +15,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] float spacingY = 2.5f;
     [SerializeField] Vector3 generateCookieAt = new(0f, -4f, 0f);
     int maxPowerUpCountinLevel;
+    int streak;
     public List<GameObject> CupContainer = new();
     public List<GameObject> InGameBiscuitContainer = new();
     public List<GameObject> PowerUpInGame = new();
@@ -21,12 +23,14 @@ public class LevelManager : MonoBehaviour
     public GameObject gameOver;
     void Start()
     {
+        scoreManager = FindFirstObjectByType<ScoreManager>();
         ProceedButton.SetActive(false);
         gameOver.SetActive(false);
         transform.position = Vector3.zero;
         SpawnCup(cupCount);
         AddContent();
         maxPowerUpCountinLevel = 0;
+        streak = 0;
     }
     void Update()
     {
@@ -112,12 +116,14 @@ public class LevelManager : MonoBehaviour
         if (InGameBiscuitContainer.Count > 0) return;
         DestroyAll();
         CupContainer.Clear();
+        InGameBiscuitContainer.Clear();
+        PowerUpInGame.Clear();
         cupCount++;
         if (cupCount > maxCupCount)
         {
             cupCount = maxCupCount;
         }
-        maxPowerUpCountinLevel = (cupCount - 1) / 4;
+        maxPowerUpCountinLevel = (cupCount - 1) / 5;
         SpawnCup(cupCount);
         AddContent();
         ProceedButton.SetActive(false);
@@ -130,6 +136,8 @@ public class LevelManager : MonoBehaviour
                 Destroy(transform.GetChild(i).gameObject);
             if (transform.GetChild(i).CompareTag("Biscuit"))
                 Destroy(transform.GetChild(i).gameObject);
+            if (transform.GetChild(i).CompareTag("PowerUp"))
+                Destroy(transform.GetChild(i).gameObject);
         }
     }
     public void DestroyCup(int num)
@@ -139,6 +147,7 @@ public class LevelManager : MonoBehaviour
         {
             if (cup.GetComponent<Cup>().cupContent == Cup.CupContent.Biscuit)
             {
+                streak++;
                 GameObject biscuit = null;
                 foreach (Transform child in cup.transform)
                 {
@@ -156,6 +165,7 @@ public class LevelManager : MonoBehaviour
             }
             else if (cup.GetComponent<Cup>().cupContent == Cup.CupContent.PowerUp)
             {
+                streak++;
                 GameObject powerUp = null;
                 foreach (Transform child in cup.transform)
                 {
@@ -171,8 +181,13 @@ public class LevelManager : MonoBehaviour
                     powerUp.transform.SetParent(transform);
                 }
             }
+            else
+            {
+                streak = 0;
+            }
             CupContainer.Remove(cup);
             Destroy(cup);
+            scoreManager.AddPoints(200 * streak);
         }
     }
     public void EliminatePowerUp()

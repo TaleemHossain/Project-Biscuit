@@ -21,7 +21,6 @@ public class CookieCounter : MonoBehaviour
     public void AddCookie()
     {
         cookieCount++;
-        
         UpdateText(cookieCount);
         if (!currentCookie.CookieAvailable)
         {

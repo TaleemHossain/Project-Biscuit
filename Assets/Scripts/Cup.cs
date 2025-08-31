@@ -5,6 +5,7 @@ public class Cup : MonoBehaviour
     Animator animator;
     CurrentCookie currentCookie;
     CookieCounter cookieCounter;
+    ScoreManager scoreManager;
     public enum CupContent { None, Biscuit, PowerUp };
     public CupContent cupContent = CupContent.None;
     public int cupNumber;
@@ -12,6 +13,7 @@ public class Cup : MonoBehaviour
     {
         currentCookie = FindFirstObjectByType<CurrentCookie>();
         cookieCounter = FindFirstObjectByType<CookieCounter>();
+        scoreManager = FindFirstObjectByType<ScoreManager>();
         animator = transform.GetComponent<Animator>();
         levelManager = FindFirstObjectByType<LevelManager>();
     }
@@ -19,6 +21,7 @@ public class Cup : MonoBehaviour
     {
         if (cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.None && !currentCookie.CookieAvailable)
         {
+            scoreManager.AddPoints(-1000);
             levelManager.GameOver();
         }
         else if (cookieCounter.GetCookieCount() == 0 && cupContent == CupContent.Biscuit && !currentCookie.CookieAvailable)
@@ -26,6 +29,7 @@ public class Cup : MonoBehaviour
             if (animator.GetBool("Reveal")) return;
             animator.SetBool("Reveal", true);
             cookieCounter.UseOnLoanCookieBite();
+            scoreManager.AddPoints(-50);
         }
         else
         {
